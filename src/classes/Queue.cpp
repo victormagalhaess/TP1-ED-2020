@@ -1,5 +1,4 @@
 #include "../include/Queue.hpp"
-#include <stdio.h>
 
 using namespace shipFight;
 
@@ -26,18 +25,29 @@ void Queue::insert(Ship *shipToRepair)
     }
 }
 
-void Queue::remove()
+Ship *Queue::remove()
 {
+    Ship *ship;
     if (this->tail != NULL)
     {
+        if (this->tail->getId() == this->head->getId())
+        {
+            this->setHead(NULL);
+        }
+        ship = this->tail;
         this->setTail(this->tail->getPrevious());
+        return ship;
     }
+    return NULL;
 }
 
 void Queue::setHead(Ship *newHead)
 {
     this->head = newHead;
-    this->head->setPrevious(NULL);
+    if (newHead != NULL)
+    {
+        this->head->setPrevious(NULL);
+    }
 }
 
 Ship *Queue::getHead()
@@ -48,10 +58,23 @@ Ship *Queue::getHead()
 void Queue::setTail(Ship *newTail)
 {
     this->tail = newTail;
-    this->tail->setNext(NULL);
+    if (newTail != NULL)
+    {
+        this->tail->setNext(NULL);
+    }
 }
 
 Ship *Queue::getTail()
 {
     return this->tail;
+}
+
+void Queue::printAllShips()
+{
+    Ship *ship = this->tail;
+    while (ship != NULL)
+    {
+        std::cout << ship->getId() << std::endl;
+        ship = ship->getPrevious();
+    }
 }

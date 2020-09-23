@@ -1,5 +1,4 @@
 #include "../include/Ship.hpp"
-#include <stdio.h>
 
 using namespace shipFight;
 

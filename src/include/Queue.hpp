@@ -1,4 +1,6 @@
 #include "../include/Ship.hpp"
+#include <stdio.h>
+#include <iostream>
 #ifndef QUEUE
 #define QUEUE
 
@@ -12,11 +14,12 @@ namespace shipFight
 
     public:
         void insert(Ship *shipToRepair);
-        void remove();
+        Ship *remove();
         void setHead(Ship *newHead);
         Ship *getHead();
         void setTail(Ship *newTail);
         Ship *getTail();
+        void printAllShips();
 
         Queue();
         ~Queue();

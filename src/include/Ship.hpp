@@ -1,5 +1,6 @@
 #ifndef SHIP
 #define SHIP
+#include <stdio.h>
 
 namespace shipFight
 {

@@ -1,4 +1,5 @@
 #include "../include/Ship.hpp"
+#include <stdio.h>
 #ifndef LIST
 #define LIST
 
@@ -12,7 +13,7 @@ namespace shipFight
 
     public:
         void insert(Ship *shipToFight);
-        void remove(int id);
+        Ship *remove(int id);
 
         void setHead(Ship *newHead);
         Ship *getHead();
